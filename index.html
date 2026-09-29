@@ -19,7 +19,6 @@ h3 {
     white-space: nowrap;
     gap: 10px;
     padding: 20px;
-    touch-action: pan-x;
 }
 
 .tab {
@@ -46,27 +45,7 @@ h3 {
     <div class="tab">TAB 7</div>
     <div class="tab">TAB 8</div>
 </div>
-    <script>
-const tabs = document.querySelector(".tabs");
 
-let startX = 0;
-
-tabs.addEventListener("touchstart", function(e) {
-    startX = e.touches[0].clientX;
-}, { passive: true });
-
-tabs.addEventListener("touchend", function(e) {
-    const endX = e.changedTouches[0].clientX;
-    const dx = endX - startX;
-
-    if (Math.abs(dx) > 50) {
-        tabs.scrollBy({
-            left: -dx,
-            behavior: "smooth"
-        });
-    }
-}, { passive: true });
-</script>
 
 </body>
 </html>
